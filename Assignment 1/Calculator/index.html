@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A simple calcutator</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        body{
+            text-align: center;
+        }
+        #calc{
+            margin: 0 auto;
+            border: 2px solid black;
+            border-spacing: 10px;
+            border-radius: 10px;
+        }
+        th{
+            height: 80px;
+            border: 1px solid black;
+            border-radius: 5px;
+            padding: 0;
+        }
+        #equal{
+            background-color:#2a39e5 ;
+            color:#fff;
+        }
+        .exp{
+            background-color: #dfe1e5;
+        }
+        td{
+            text-align: center;
+        }
+        input{
+            height: 50px;
+            width: 70px;
+            background-color: #f1f3f4;
+            color: #000000;
+            border: none;
+            border-radius: 5px;
+            text-align: center;  
+            font-size: 30px;    
+        }
+        input:hover, .exp:hover{
+            background-color: #c1c3c6;
+            box-shadow: 5px 5px 10px black 50%;
+        }
+        #output{
+            width: 95%;
+            margin: 5px;
+            text-align: right;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Simple php Calculator</h1>
+    
+    <table id="calc">
+        <thead>
+        <tr>
+            <th colspan="4">
+                <input id="output" type="text" placeholder="0" value="">
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td><input class="exp" type="button" onClick="getExp('(')" value="("></td>
+            <td><input class="exp" type="button" onClick="getExp(')')" value=")"></td>
+            <td><input class="exp" type="button" onClick="getExp('%')" value="%"></td>
+            <td><input class="exp" type="button" id="clear" value="AC"></td>
+        </tr>
+        <tr>
+            <td><input type="button" onClick="getExp('7')" value="7"></td>
+            <td><input type="button" onClick="getExp('8')" value="8"></td>
+            <td><input type="button" onClick="getExp('9')" value="9"></td>
+            <td><input class="exp" type="button" onClick="getExp('/')" value="/"></td>
+        </tr>
+        <tr>
+            <td><input type="button" onClick="getExp('4')" value="4"></td>
+            <td><input type="button" onClick="getExp('5')" value="5"></td>
+            <td><input type="button" onClick="getExp('6')" value="6"></td>
+            <td><input class="exp" type="button" onClick="getExp('*')" value="*"></td>
+        </tr>
+        <tr>
+            <td><input type="button" onClick="getExp('1')" value="1"></td>
+            <td><input type="button" onClick="getExp('2')" value="2"></td>
+            <td><input type="button" onClick="getExp('3')"value="3"></td>
+            <td><input class="exp" type="button" onClick="getExp('-')" value="-"></td>
+        </tr>
+        <tr>
+            <td><input type="button" onClick="getExp('0')" value="0"></td>
+            <td><input type="button" onClick="getExp('.')"value="."></td>
+            <td><input class="exp" id="equal" type="button" value="="></td>
+            <td><input class="exp" type="button" onClick="getExp('+')" value="+"></td>
+        </tr>
+        
+        </tbody>
+        
+    </table>
+
+    <script>
+        function printExp(exp){
+            document.getElementById('output').value=exp;
+        }
+        var str = "";
+        function getExp(val){
+            str += val;
+            printExp(str);
+        }
+        document.getElementById('equal').addEventListener("click", function(){
+            var exp = document.getElementById('output').value;
+            str = eval(exp);
+            printExp(str);
+        })
+        document.getElementById('clear').addEventListener("click", function(){
+            document.getElementById('output').value="";
+            str ="";
+        })
+
+    </script>
+</body>
+</html>
