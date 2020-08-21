@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Tic Tac Toe</title>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+  <script src="logic.js"></script>
+
+  
+  <header>
+  <h1>TIC TAC TOE</h1>
+  </header>
+  <div>
+  <input type="button" id="1" onclick="xoo(1)" value="">
+  <input type="button" id="2" onclick="xoo(2)" value="">
+  <input type="button" id="3" onclick="xoo(3)" value="">
+  </div>
+  <div>
+  <input type="button" id="4" onclick="xoo(4)" value="">
+  <input type="button" id="5" onclick="xoo(5)" value="">
+  <input type="button" id="6" onclick="xoo(6)" value="">
+  </div>
+  <div>
+  <input type="button" id="7" onclick="xoo(7)" value="">
+  <input type="button" id="8" onclick="xoo(8)" value="">
+  <input type="button" id="9" onclick="xoo(9)" value="">
+  </div>
+
+  <button onclick="zuruecksetzen()">Reset</button>
+  
+  <section align="center" id="popup">
+  <p id="text">text</p>
+  <button id="popupbutton" onclick="zuruecksetzen()">Ok</button>
+  </section>
+  
+  <section id="overlay"></section>
+  
+  </body>
+</html>
