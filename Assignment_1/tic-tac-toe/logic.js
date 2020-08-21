@@ -45,7 +45,6 @@ function disall() {
     var b7 = document.getElementById("7");
     var b8 = document.getElementById("8");
     var b9 = document.getElementById("9");
-    
     b1.disabled = true;
     b2.disabled = true;
     b3.disabled = true;
