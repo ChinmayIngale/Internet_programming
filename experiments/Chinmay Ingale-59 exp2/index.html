@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    .main>div{
+        width: 100px;
+        height: 100px;
+        line-height: 100px;
+        text-align: center;
+        margin: 50px;
+        position: relative;
+        transition: all 2s;
+    }
+    .main>div:nth-child(1){
+        background-color: blue;
+    }
+    .main>div:nth-child(4){
+        background-color: blueviolet;
+        border-radius: 50%;
+        animation: roll 5s linear 1s infinite alternate;
+    }
+    .main>div:nth-child(3){
+        background-color: darkred;
+        
+        transition: all 1s;
+    }
+    .main>div:nth-child(2){
+        background-color: forestgreen;
+        animation:  zoom 2s linear 1s infinite alternate;
+        animation-timing-function: ease;
+    }
+    .main>div:nth-child(1):hover{
+        transform: rotateZ(360deg);
+        background-color: red;
+        border-radius: 50%;
+    }
+    .main>div:nth-child(3):hover{
+        background-color: aqua;
+        width: 600px;
+    }
+    @keyframes zoom{
+        0%{
+            background-color:forestgreen;
+            left:0px;
+            top:0px;
+        }
+        30%{
+            left: 150px;
+            top: 300px;
+            transform: rotateZ(220deg);
+        }
+        60%{
+            left: 600px;
+            top: 0;
+            transform: rotateZ(520deg);
+        }
+        80%{
+            left: 1000px;
+            top : -150px;
+            border-radius: 20px;
+            background-color: orangered;
+            transform: rotateZ(720deg);
+        }
+        100%{
+            left: 1000px;
+            top : -150px;
+            border-radius: 20px;
+        }
+    }
+    @keyframes roll {
+        0%{
+            background-color:blueviolet;
+            left:0px;
+            top:0px;
+        }
+        50%{
+            background-color:yellow;
+            left:600px;
+            transform: scale(.5, .5);
+            transform: rotateZ(360deg);
+            delay:2s;
+        }
+        100%{
+            background-color:blueviolet;
+            left:0px;
+            top:0px;
+        }
+    }
+</style>
+</head>
+<body>
+    <div class="main">
+        <div class="child1">hover </div>
+        <div class="child2">zoom</div>
+        <div class="child3">hover</div>
+        <div class="child4">roll</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>callback</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function download(txt, callback) {
+    document.write(`<br>${txt} is stoped for 5 sec...`);
+    setTimeout(() => {
+        callback(txt);
+        return document.write('<br><b>done</b>')
+    }, 5000);
+}
+
+function process(txt) {
+    document.write(`${txt} done processing`);
+}
+
+let txt = 'this is callback';
+document.write(txt);
+download(txt, process);
+</script>
+</html>
