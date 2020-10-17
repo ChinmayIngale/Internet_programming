@@ -1,0 +1,61 @@
+Microsoft Windows [Version 10.0.18362.1082]
+(c) 2019 Microsoft Corporation. All rights reserved.
+
+C:\Program Files\MongoDB\Server\4.4\bin>mongo
+MongoDB shell version v4.4.1
+connecting to: mongodb://127.0.0.1:27017/?compressors=disabled&gssapiServiceName=mongodb
+Implicit session: session { "id" : UUID("760d4de8-ccf9-4b62-9ddf-af1db627f5a4") }
+MongoDB server version: 4.4.1
+---
+The server generated these startup warnings when booting:
+        2020-10-05T08:24:21.160+05:30: ***** SERVER RESTARTED *****
+        2020-10-05T08:24:23.090+05:30: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+---
+---
+        Enable MongoDB's free cloud-based monitoring service, which will then receive and display
+        metrics about your deployment (disk utilization, CPU, operation statistics, etc).
+
+        The monitoring data will be available on a MongoDB website with a unique URL accessible to you
+        and anyone you share the URL with. MongoDB may use this information to make product
+        improvements and to suggest MongoDB products and deployment options to you.
+
+        To enable free monitoring, run the following command: db.enableFreeMonitoring()
+        To permanently disable this reminder, run the following command: db.disableFreeMonitoring()
+---
+> show dbs
+admin     0.000GB
+config    0.000GB
+local     0.000GB
+product   0.000GB
+> use studentdb
+switched to db customer
+> show dbs
+admin     0.000GB
+config    0.000GB
+local     0.000GB
+product   0.000GB
+> db.stud.insertMany([{"S_id":1,"V_name":"joey"},{"S_id":2,"S_name":"chandler"}]);
+{
+        "acknowledged" : true,
+        "insertedIds" : [
+                ObjectId("5f7a938b88ef45559c2e38d3"),
+                ObjectId("5f7a938b88ef45559c2e38d4")
+        ]
+}
+> show dbs
+admin     0.000GB
+config    0.000GB
+local     0.000GB
+product   0.000GB
+studentdb 0.000GB
+> show collections;
+stud
+> db.stud.find()
+{ "_id" : ObjectId("5f7a938b88ef45559c2e38d3"), "S_id" : 1, "S_name" : "joey" }
+{ "_id" : ObjectId("5f7a938b88ef45559c2e38d4"), "S_id" : 2, "S_name" : "chandler" }
+> db.customer.remove({"S_id":2});
+WriteResult({ "nRemoved" : 1 })
+> db.customer.find()
+{ "_id" : ObjectId("5f7a938b88ef45559c2e38d4"), "S_id" : 1, "S_name" : "joey" }
+>
+
